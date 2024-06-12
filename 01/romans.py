@@ -42,9 +42,3 @@ def roman_to_int(s):
         valor_anterior = valor_atual
 
     return total
-
-romano = "M"
-inteiro = romano_para_numero(romano)
-print(inteiro)
-
-    pass
