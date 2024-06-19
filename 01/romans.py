@@ -15,9 +15,9 @@ def int_to_roman(num):
     return traducao
 
 
-def roman_to_int(s):
-    def romano_para_numero(romano):
-        valores = {
+def roman_to_int(roman):
+    
+    roman_numerals = {
         'I': 1,
         'V': 5,
         'X': 10,
@@ -28,17 +28,14 @@ def roman_to_int(s):
     }
 
     total = 0
+    prev_value = 0
 
-    valor_anterior = 0
-
-    for caractere in reversed(romano):
-        valor_atual = valores[caractere]
-
-        if valor_atual < valor_anterior:
-            total -= valor_atual
+    for numeral in reversed(roman):
+        value = roman_numerals[numeral]
+        if value < prev_value:
+            total -= value
         else:
-            total += valor_atual
-
-        valor_anterior = valor_atual
+            total += value
+        prev_value = value
 
     return total
